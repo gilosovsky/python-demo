@@ -1,0 +1,14 @@
+pipeline {
+  agent {
+    docker {
+      image 'alpine/git' // Use a small image like alpine/git for quick testing
+    }
+  }
+  stages {
+    stage('Hello') {
+      steps {
+        sh 'echo "Hello from Docker!"'
+      }
+    }
+  }
+}
