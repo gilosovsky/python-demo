@@ -7,6 +7,11 @@ pipeline {
                 sh 'pip3 install -r requirements.txt || true'
             }
         }
+        stage('Debug') {
+            steps {
+             sh 'which python || which python3 || echo "No Python found!"'
+             }
+        }
         stage('Test') {
             steps {
                 sh 'python3 -m unittest test_app.py'
